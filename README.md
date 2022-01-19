@@ -1,6 +1,4 @@
-# meta_learning
-Implementation of Meta Learning Algorithm
-
+# Implementation of Meta Learning Algorithm(Pytorch)
 
 1. Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks([Paper](https://arxiv.org/abs/1703.03400))
    
