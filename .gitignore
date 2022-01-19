@@ -1,2 +1,5 @@
-MAML/__pycache__/
-MAML/runs/
+MAML/*/__pycache__/
+MAML/*/runs/
+MAML/*/wandb/
+
+
