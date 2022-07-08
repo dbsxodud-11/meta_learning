@@ -30,3 +30,11 @@
    ![](Neural_Process/objective_formulation.png)
 
    Since NP are trained to predict distribution over functions, it can be considered as Meta-Learning algorithm. NP can quickly adapt function which is unseen but sampled from same distribution with functions that are used in training. Therefore, I implement Neural Process algorithm and apply to regression and reinforcement learning tasks.
+   
+   - Regression
+
+   <img src='/Neural_Process/regression/results/prediction.png' width="75%" height="75%">
+   
+   - Reinforcement Learning
+
+   <img src='/Neural_Process/reinforcement_learning/results/reward.png' width="75%" height="75%">
