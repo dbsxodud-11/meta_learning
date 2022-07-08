@@ -38,3 +38,6 @@
    - Reinforcement Learning
 
    <img src='/Neural_Process/reinforcement_learning/results/reward.png' width="75%" height="75%">
+
+## References
+   - Implement Neural Process using PyTorch: https://github.com/EmilienDupont/neural-processes
