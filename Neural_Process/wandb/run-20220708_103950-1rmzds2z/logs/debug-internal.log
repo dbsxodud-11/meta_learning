@@ -1,0 +1,53 @@
+2022-07-08 10:39:51,414 INFO    MainThread:16104 [internal.py:wandb_internal():87] W&B internal server running at pid: 16104, started at: 2022-07-08 10:39:51.413332
+2022-07-08 10:39:51,415 DEBUG   HandlerThread:16104 [handler.py:handle_request():130] handle_request: check_version
+2022-07-08 10:39:51,415 INFO    WriterThread:16104 [datastore.py:open_for_write():77] open: E:\meta_learning\Neural_Process\wandb\run-20220708_103950-1rmzds2z\run-1rmzds2z.wandb
+2022-07-08 10:39:51,417 DEBUG   SenderThread:16104 [sender.py:send():234] send: header
+2022-07-08 10:39:51,417 DEBUG   SenderThread:16104 [sender.py:send_request():248] send_request: check_version
+2022-07-08 10:39:51,453 DEBUG   SenderThread:16104 [sender.py:send():234] send: run
+2022-07-08 10:40:06,411 ERROR   SenderThread:16104 [internal_api.py:execute():144] 409 response executing GraphQL.
+2022-07-08 10:40:06,411 ERROR   SenderThread:16104 [internal_api.py:execute():145] {"errors":[{"message":"Error 1062: Duplicate entry '1112070-1rmzds2z' for key 'PRIMARY'","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2022-07-08 10:40:06,590 INFO    WriterThread:16104 [datastore.py:close():281] close: E:\meta_learning\Neural_Process\wandb\run-20220708_103950-1rmzds2z\run-1rmzds2z.wandb
+2022-07-08 10:40:06,590 INFO    HandlerThread:16104 [handler.py:finish():731] shutting down handler
+2022-07-08 10:40:06,590 ERROR   MainThread:16104 [internal.py:wandb_internal():158] Thread SenderThread:
+Traceback (most recent call last):
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\apis\normalize.py", line 24, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\sdk\internal\internal_api.py", line 1298, in upsert_run
+    response = self.gql(mutation, variable_values=variable_values, **kwargs)
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\sdk\lib\retry.py", line 102, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\sdk\internal\internal_api.py", line 147, in execute
+    six.reraise(*sys.exc_info())
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\six.py", line 719, in reraise
+    raise value
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\sdk\internal\internal_api.py", line 141, in execute
+    return self.client.execute(*args, **kwargs)
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\vendor\gql-0.2.0\gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\vendor\gql-0.2.0\gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\vendor\gql-0.2.0\gql\transport\requests.py", line 39, in execute
+    request.raise_for_status()
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\requests\models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 409 Client Error: Conflict for url: https://api.wandb.ai/graphql
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\sdk\internal\internal_util.py", line 52, in run
+    self._run()
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\sdk\internal\internal_util.py", line 102, in _run
+    self._process(record)
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\sdk\internal\internal.py", line 291, in _process
+    self._sm.send(record)
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\sdk\internal\sender.py", line 236, in send
+    send_handler(record)
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\sdk\internal\sender.py", line 687, in send_run
+    self._init_run(run, config_value_dict)
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\sdk\internal\sender.py", line 711, in _init_run
+    server_run, inserted = self._api.upsert_run(
+  File "C:\Users\dbsxodud\Anaconda3\envs\rl_env\lib\site-packages\wandb\apis\normalize.py", line 26, in wrapper
+    raise CommError(err.response, err)
+wandb.errors.CommError: <Response [409]>
+2022-07-08 10:40:08,622 INFO    MainThread:16104 [internal.py:handle_exit():77] Internal process exited

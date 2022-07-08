@@ -19,3 +19,14 @@
    - Reinforcement Learning
 
    <img src='/MAML/reinforcement_learning/results/MAML.png' width="50%" height="50%"><img src='/MAML/reinforcement_learning/results/pretrained.png' width="50%" height="50%">
+
+
+2. Neural Processes([Paper](https://arxiv.org/pdf/1807.01622.pdf))
+
+   Neural Processes(NP) combine the strengths of neural networks and Gaussian processes  to achieve both flexible learning and fast prediction in stochastic processes.
+
+   Formally, NP tries to maximize the Evidence Lower Bound(ELBO) dervied as below:
+
+   ![](Neural_Process/objective_formulation.png)
+
+   Since NP are trained to predict distribution over functions, it can be considered as Meta-Learning algorithm. NP can quickly adapt function which is unseen but sampled from same distribution with functions that are used in training. Therefore, I implement Neural Process algorithm and apply to regression and reinforcement learning tasks.
