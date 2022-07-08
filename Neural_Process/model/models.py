@@ -141,3 +141,37 @@ class Decoder(nn.Module):
         # Process Objectives" and "Attentive Neural Processes"
         sigma = 0.1 + 0.9 * F.softplus(pre_sigma)
         return mu, sigma
+
+
+class Actor(nn.Module):
+    def __init__(self, in_dim, out_dim):
+        super(Actor, self).__init__()
+        self.in_dim= in_dim
+        self.out_dim = out_dim
+        
+        self.model = nn.Sequential(nn.Linear(self.in_dim, 64),
+                                   nn.ReLU(),
+                                   nn.Linear(64, 64),
+                                   nn.ReLU(),
+                                   nn.Linear(64, self.out_dim))
+
+    def forward(self, x):
+        x = self.model(x)
+        return F.softmax(x, dim=-1)
+
+
+class Critic(nn.Module):
+    def __init__(self, in_dim, out_dim):
+        super(Critic, self).__init__()
+        self.in_dim= in_dim
+        self.out_dim = out_dim
+        
+        self.model = nn.Sequential(nn.Linear(self.in_dim, 64),
+                                   nn.ReLU(),
+                                   nn.Linear(64, 64),
+                                   nn.ReLU(),
+                                   nn.Linear(64, self.out_dim))
+
+    def forward(self, x):
+        x = self.model(x)
+        return x
